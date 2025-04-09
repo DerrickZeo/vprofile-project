@@ -3,6 +3,8 @@ RUN git clone https://github.com/DerrickZeo/vprofile-project.git
 RUN cd vprofile-project && git checckout main && mvn install
 
 FROM tomcat:10-jdk21
+LABEL "project"="vprofile"
+LABEL "Author"="Derrick"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=BUILD_IMAAGE vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
 
