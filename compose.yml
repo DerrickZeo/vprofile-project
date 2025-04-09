@@ -43,7 +43,7 @@ services:
      image: zeosystems/vprofileweb
      container_name: vproweb
      ports:
-      - "80:8080"
+      - "80:80"
      
 volumes:
   vprodbdata: {}
