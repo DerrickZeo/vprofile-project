@@ -119,3 +119,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-12-07 16:32:31
+
+-- Allow root to connect from any container host
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'vprodbpass' WITH GRANT OPTION;
+
+-- Optional: explicitly allow user accounts if you're using custom users
+-- GRANT ALL PRIVILEGES ON accounts.* TO 'admin_vp'@'%' IDENTIFIED BY '<plain-or-bcrypt-password>';
+-- NOTE: For Spring apps, it’s common to use 'root' as DB user and rely on app-level auth instead
+FLUSH PRIVILEGES;
+
